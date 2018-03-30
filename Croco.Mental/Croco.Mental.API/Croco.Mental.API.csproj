@@ -25,7 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Croco.Mental.Business\Croco.Mental.Business.csproj" />
     <ProjectReference Include="..\Croco.Mental.Domain\Croco.Mental.Domain.csproj" />
+    <ProjectReference Include="..\Croco.Mental.Repository\Croco.Mental.Repository.csproj" />
   </ItemGroup>
 
 </Project>

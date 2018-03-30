@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Croco.Mental.Domain.Interfaces;
-using Croco.Mental.Domain.Business;
+using Croco.Mental.Business.Interfaces;
+using Croco.Mental.Business;
 using Croco.Mental.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,13 +15,13 @@ namespace Croco.Mental.API.Controllers
     [Route("api/v1/users")]
     public class UsersController : Controller
     {
-        private readonly IUserBusiness _userBusiness;
-        public UsersController(IUserBusiness userBusiness) => _userBusiness = userBusiness;
+        private readonly IHumorDataBusiness _userBusiness;
+        public UsersController(IHumorDataBusiness userBusiness) => _userBusiness = userBusiness;
 
         [HttpGet]
         public async Task<IActionResult> GetById(string id)
         {
-            return Ok(await _userBusiness.GetUserById(id));
+            return Ok(await _userBusiness.GetById(id));
         }
     }
 }
