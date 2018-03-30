@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Croco.Mental.Domain\Croco.Mental.Domain.csproj" />
+    <ProjectReference Include="..\Croco.Mental.Repository\Croco.Mental.Repository.csproj" />
   </ItemGroup>
 
 </Project>

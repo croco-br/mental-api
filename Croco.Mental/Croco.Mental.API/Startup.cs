@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Croco.Mental.Domain.Business;
-using Croco.Mental.Domain.Interfaces;
+﻿using Croco.Mental.Business;
+using Croco.Mental.Business.Interfaces;
+using Croco.Mental.Domain.Models;
+using Croco.Mental.Repository;
+using Croco.Mental.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +10,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Croco.Mental.API
 {
@@ -33,7 +36,12 @@ namespace Croco.Mental.API
                 c.SwaggerDoc("v1", new Info { Title = "Mental API", Version = "v1" });
             });
 
+            //business
             services.AddTransient<IUserBusiness, UserBusiness>();
+            services.AddTransient<IHumorDataBusiness, HumorDataBusiness>();
+
+            //repositories
+             services.AddTransient<IHumorDataRepository, HumorDataRepository>();
         }
 
 

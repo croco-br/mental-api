@@ -1,11 +1,11 @@
-﻿using Croco.Mental.Domain.Interfaces;
+﻿using Croco.Mental.Business.Interfaces;
 using Croco.Mental.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Croco.Mental.Domain.Business
+namespace Croco.Mental.Business
 {
     public sealed class UserBusiness : IUserBusiness
     {
