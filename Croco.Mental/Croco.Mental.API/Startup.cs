@@ -41,7 +41,7 @@ namespace Croco.Mental.API
             services.AddTransient<IHumorDataBusiness, HumorDataBusiness>();
 
             //repositories
-           // services.AddTransient<IHumorDataRepository, HumorDataRepository>();
+             services.AddTransient<IHumorDataRepository, HumorDataRepository>();
         }
 
 

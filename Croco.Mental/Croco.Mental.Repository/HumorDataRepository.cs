@@ -1,4 +1,5 @@
-﻿using Croco.Mental.Repository.Interfaces;
+﻿using Croco.Mental.Domain.Models;
+using Croco.Mental.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,9 +9,11 @@ namespace Croco.Mental.Repository
 {
     public sealed class HumorDataRepository : IHumorDataRepository
     {
-        public Task<bool> Save()
+        public Task<bool> Save(HumorData entity)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
+
+      
     }
 }

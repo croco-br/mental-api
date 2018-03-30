@@ -18,10 +18,26 @@ namespace Croco.Mental.API.Controllers
         private readonly IHumorDataBusiness _userBusiness;
         public UsersController(IHumorDataBusiness userBusiness) => _userBusiness = userBusiness;
 
+        /// <summary>
+        /// Returns User as Json.
+        /// </summary>
+        /// <param name="id">entity id</param>
+        /// <remarks>Get a user object from the database.</remarks>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal Server Error</response>
         [HttpGet]
         public async Task<IActionResult> GetById(string id)
         {
-            return Ok(await _userBusiness.GetById(id));
+            try
+            {
+                return Ok(await _userBusiness.GetById(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }          
         }
     }
 }

@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Croco.Mental.Domain\Croco.Mental.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
