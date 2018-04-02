@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Croco.Mental.Business
 {
-    public sealed class HumorDataBusiness : IHumorDataBusiness       
+    public sealed class HumorDataBusiness : IHumorDataBusiness
     {
         private readonly IHumorDataRepository _humorDataRepository;
         public HumorDataBusiness(IHumorDataRepository humorDataRepository)
@@ -26,9 +26,26 @@ namespace Croco.Mental.Business
                     Id = 1,
                     Name = "Fulano da Silva"
                 },
-                Question = "Are You Feeling Bad?",
-                Value = null,
-                Answer = "Yes",
+                Questions = new MoodQuestionnaire()
+                {
+                    Questions = new List<MoodQuestion>() {
+                        new MoodQuestion(){
+                            Emotion = MoodQuestion.MoodDefinition.Amedrontadx,
+                            Level = MoodQuestion.MoodLevel.Extremamente
+                        },
+                        new MoodQuestion(){
+                            Emotion = MoodQuestion.MoodDefinition.Determinadx,
+                            Level = MoodQuestion.MoodLevel.Extremamente
+                        },
+                        new MoodQuestion(){
+                            Emotion = MoodQuestion.MoodDefinition.Interessadx,
+                            Level = MoodQuestion.MoodLevel.Nada                        },
+                        new MoodQuestion(){
+                            Emotion = MoodQuestion.MoodDefinition.Amedrontadx,
+                            Level = MoodQuestion.MoodLevel.Pouco
+                        }
+                    }
+                },
                 Timestamp = DateTime.Now
             };
         }
