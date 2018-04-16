@@ -1,5 +1,6 @@
 ﻿using Croco.Mental.Domain.Models;
 using Croco.Mental.Repository.Interfaces;
+using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,9 @@ namespace Croco.Mental.Repository
 {
     public sealed class HumorDataRepository : IHumorDataRepository
     {
+
+        private const string COLLECTION_NAME = "HumorData";
+
         public Task<List<HumorData>> GetMoodQuestions()
         {
             throw new NotImplementedException();
@@ -19,16 +23,21 @@ namespace Croco.Mental.Repository
             throw new NotImplementedException();
         }
 
-        public Task<bool> Save(HumorData entity)
+        public async Task<bool> Save(HumorData entity)
         {
-           var list = new MoodQuestionnaire()
-            {
+            using (var db = new LiteDatabase(Configuration.Database))
+            {           
+                var col = db.GetCollection<HumorData>(COLLECTION_NAME);
+     
+                col.EnsureIndex(x => x.Id, true);
+          
+                col.Insert(entity);
 
-            };
+                return true;
+            }
 
-            return Task.FromResult(true);
         }
 
-      
+
     }
 }
