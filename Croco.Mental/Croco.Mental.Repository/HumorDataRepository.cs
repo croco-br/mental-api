@@ -13,24 +13,33 @@ namespace Croco.Mental.Repository
 
         private const string COLLECTION_NAME = "HumorData";
 
-        public Task<List<HumorData>> GetMoodQuestions()
+        public Task<IEnumerable<HumorData>> GetAll()
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                using (var db = new LiteDatabase(Configuration.Database))
+                {
+                    var col = db.GetCollection<HumorData>(COLLECTION_NAME);
 
-        public Task<List<HumorData>> GetQuestions()
-        {
-            throw new NotImplementedException();
+                    var list = col.FindAll();
+                    return Task.FromResult(list);
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: log
+                throw;
+            }
         }
 
         public async Task<bool> Save(HumorData entity)
         {
             using (var db = new LiteDatabase(Configuration.Database))
-            {           
+            {
                 var col = db.GetCollection<HumorData>(COLLECTION_NAME);
-     
+
                 col.EnsureIndex(x => x.Id, true);
-          
+
                 col.Insert(entity);
 
                 return true;
@@ -38,6 +47,22 @@ namespace Croco.Mental.Repository
 
         }
 
+        public async Task<HumorData> GetById(int id)
+        {
+            try
+            {
+                using (var db = new LiteDatabase(Configuration.Database))
+                {
+                    var col = db.GetCollection<HumorData>(COLLECTION_NAME);
 
+                    return col.FindOne(x => x.Id == id);
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: log
+                throw;
+            }
+        }
     }
 }

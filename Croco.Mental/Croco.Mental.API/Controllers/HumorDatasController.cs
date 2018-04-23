@@ -30,7 +30,7 @@ namespace Croco.Mental.API.Controllers
         /// <response code="404">Not Found</response>
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
-        public async Task<IActionResult> GetById(string id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Croco.Mental.API.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-            }          
+            }
         }
 
         /// <summary>
@@ -63,5 +63,27 @@ namespace Croco.Mental.API.Controllers
                 return BadRequest(ex.Message);
             }        
         }
+
+        /// <summary>
+        /// Returns all humor data on database.
+        /// </summary>
+        /// <remarks>Get all humor data objects from the database.</remarks>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal Server Error</response>
+        //[HttpGet]
+        //public async Task<IActionResult> GetAll()
+        //{
+        //    try
+        //    {
+        //        return Ok(await _humorDataBusiness.GetAll());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
+
     }
 }
