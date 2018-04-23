@@ -15,8 +15,8 @@ namespace Croco.Mental.API.Controllers
     [Route("api/v1/users")]
     public class UsersController : Controller
     {
-        private readonly IHumorDataBusiness _userBusiness;
-        public UsersController(IHumorDataBusiness userBusiness) => _userBusiness = userBusiness;
+        private readonly IUserBusiness _userBusiness;
+        public UsersController(IUserBusiness userBusiness) => _userBusiness = userBusiness;
 
         /// <summary>
         /// Returns User as Json.
@@ -28,7 +28,8 @@ namespace Croco.Mental.API.Controllers
         /// <response code="404">Not Found</response>
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
-        public async Task<IActionResult> GetById(string id)
+        [Route("{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -37,7 +38,50 @@ namespace Croco.Mental.API.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-            }          
+            }
+        }
+
+        /// <summary>
+        /// Returns all users.
+        /// </summary>
+        /// <remarks>Gets users objects from the database.</remarks>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal Server Error</response>
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                return Ok(await _userBusiness.GetAll());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Insert a user in the database.
+        /// </summary>
+        /// <param name="id">entity id</param>
+        /// <remarks>Set a user object in the database.</remarks>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal Server Error</response>
+        [HttpPost]
+        public async Task<IActionResult> Save([FromBody]User user)
+        {
+            try
+            {
+                return Ok(await _userBusiness.Save(user));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
