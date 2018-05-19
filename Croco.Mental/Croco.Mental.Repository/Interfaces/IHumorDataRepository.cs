@@ -11,5 +11,6 @@ namespace Croco.Mental.Repository.Interfaces
         Task<bool> Save(HumorData entity);
         Task<IEnumerable<HumorData>> GetAll();
         Task<HumorData> GetById(int id);
+        Task<IEnumerable<HumorData>> GetByUser(User user);
     }
 }

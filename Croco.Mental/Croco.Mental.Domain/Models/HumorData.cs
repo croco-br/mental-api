@@ -6,7 +6,10 @@ namespace Croco.Mental.Domain.Models
 {
     public sealed class HumorData
     {
-        public HumorData(User user) => this.Owner = user;
+        public HumorData()
+        {
+
+        }
 
         public int Id { get; set; }
         public User Owner { get; set; }

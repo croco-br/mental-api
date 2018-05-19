@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Croco.Mental.Repository;
 using Croco.Mental.Repository.Interfaces;
 using Microsoft.ML;
+using System.Linq;
+using Croco.Mental.Domain.Models;
 
 namespace Croco.Mental.Business
 {
@@ -22,9 +24,14 @@ namespace Croco.Mental.Business
 
         public async Task<List<string>> RecommendActions(int userId)
         {
-            var user =  await _userRepository.GetById(userId);
+            var user = await _userRepository.GetById(userId);
+            var questionnaires = await _humorDataRepository.GetByUser(user);
 
-            
+            var questions = questionnaires.ToList<HumorData>();
+            foreach (var q in questions)
+            {
+                //TODO: do somethingl
+            }
 
             return null;
 

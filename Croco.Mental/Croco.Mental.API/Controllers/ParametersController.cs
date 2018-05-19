@@ -45,6 +45,7 @@ namespace Croco.Mental.API.Controllers
                         Keys = t.GetEnumNames(),
                     });
                 }
+
                 return Ok(list);
             }
             catch (Exception ex)

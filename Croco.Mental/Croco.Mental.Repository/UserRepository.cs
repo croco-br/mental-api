@@ -11,6 +11,12 @@ namespace Croco.Mental.Repository
     public sealed class UserRepository : IUserRepository
     {
         private const string COLLECTION_NAME = "Users";
+        private readonly ILogRepository _logger;
+
+        public UserRepository(ILogRepository logRepository)
+        {
+            _logger = logRepository;
+        }
 
         public async Task<List<User>> GetAll()
         {
@@ -25,7 +31,11 @@ namespace Croco.Mental.Repository
             }
             catch (Exception ex)
             {
-                //TODO: log
+                await _logger.Save(new LogEntry()
+                {
+                    Message = ex.Message,
+                    Origin = "UserRepository.GetAll()"
+                });
                 throw;
             }
         }
@@ -43,9 +53,14 @@ namespace Croco.Mental.Repository
             }
             catch (Exception ex)
             {
-                //TODO: log
+                await _logger.Save(new LogEntry()
+                {
+                    Message = ex.Message,
+                    Origin = "UserRepository.GetById()"
+                });
                 throw;
             }
+
         }
 
         public async Task<bool> Save(User entity)
@@ -65,7 +80,11 @@ namespace Croco.Mental.Repository
             }
             catch (Exception ex)
             {
-                //TODO: log
+                await _logger.Save(new LogEntry()
+                {
+                    Message = ex.Message,
+                    Origin = "UserRepository.Save()"
+                });
                 throw;
             }
 
