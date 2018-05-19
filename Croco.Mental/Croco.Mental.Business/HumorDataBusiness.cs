@@ -16,42 +16,18 @@ namespace Croco.Mental.Business
             _humorDataRepository = humorDataRepository;
         }
 
-        public async Task<HumorData> GetById(string id)
+        public async Task<IEnumerable<HumorData>> GetAll()
         {
-            return new HumorData()
-            {
-                Id = 1,
-                Owner = new User()
-                {
-                    Id = 1,
-                    Name = "Fulano da Silva"
-                },
-                Questions = new MoodQuestionnaire()
-                {
-                    Questions = new List<MoodQuestion>() {
-                        new MoodQuestion(){
-                            Emotion = MoodQuestion.MoodDefinition.Amedrontadx,
-                            Level = MoodQuestion.MoodLevel.Extremamente
-                        },
-                        new MoodQuestion(){
-                            Emotion = MoodQuestion.MoodDefinition.Determinadx,
-                            Level = MoodQuestion.MoodLevel.Extremamente
-                        },
-                        new MoodQuestion(){
-                            Emotion = MoodQuestion.MoodDefinition.Interessadx,
-                            Level = MoodQuestion.MoodLevel.Nada                        },
-                        new MoodQuestion(){
-                            Emotion = MoodQuestion.MoodDefinition.Amedrontadx,
-                            Level = MoodQuestion.MoodLevel.Pouco
-                        }
-                    }
-                },
-                Timestamp = DateTime.Now
-            };
+            return await _humorDataRepository.GetAll();
+        }
+
+        public async Task<HumorData> GetById(int id)
+        {
+            return await _humorDataRepository.GetById(id);
         }
 
         public async Task<bool> Save(HumorData data)
-        {
+        {            
             return await _humorDataRepository.Save(data);
         }
     }

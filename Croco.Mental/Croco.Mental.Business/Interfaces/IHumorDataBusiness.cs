@@ -8,7 +8,8 @@ namespace Croco.Mental.Business.Interfaces
 {
     public interface IHumorDataBusiness
     {
-        Task<HumorData> GetById(string id);
+        Task<IEnumerable<HumorData>> GetAll();
+        Task<HumorData> GetById(int id);
         Task<bool> Save(HumorData data);
     }
 }
