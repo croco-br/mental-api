@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Croco.Mental.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,35 +11,6 @@ namespace Croco.Mental.Domain.Models
     /// </summary>
     public sealed class MoodQuestion
     {
-        /// <summary>
-        /// Gender neutral emotion definition.
-        /// </summary>
-        public enum MoodDefinition
-        {
-            Interessadx,
-            Nervosx,
-            Entusiasmadx,
-            Amedrontadx,
-            Inspiradx,
-            Ativx,
-            Assustadx,
-            Culpadx,
-            Determinadx,
-            Atormentadx
-        }
-
-        /// <summary>
-        /// Level of emotions.
-        /// </summary>
-        public enum MoodLevel
-        {
-            Nada = 1,
-            Pouco = 2,
-            Moderadamente = 3,
-            Bastante = 4,
-            Extremamente = 5
-        }
-
         public MoodDefinition Emotion { get; set; }
         public MoodLevel Level { get; set; }
     }

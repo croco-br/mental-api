@@ -5,26 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using Croco.Mental.Repository;
 using Croco.Mental.Repository.Interfaces;
+using Microsoft.ML;
 
 namespace Croco.Mental.Business
 {
-    public sealed class Engine : IEngine
+    public sealed class RecommendationEngine : IRecommendationEngine
     {
         private readonly IHumorDataRepository _humorDataRepository;
         private readonly IUserRepository _userRepository;
 
-        public Engine(IHumorDataRepository humorDataRepository, IUserRepository userRepository)
+        public RecommendationEngine(IHumorDataRepository humorDataRepository, IUserRepository userRepository)
         {
             _humorDataRepository = humorDataRepository;
             _userRepository = userRepository;
         }
 
-        public async Task<bool> RecommendActions(int userId)
+        public async Task<List<string>> RecommendActions(int userId)
         {
-            var user = _userRepository.GetById(userId);
-            _humorDataRepository.GetById(userId);
+            var user =  await _userRepository.GetById(userId);
 
-            return true;
+            
+
+            return null;
+
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Croco.Mental.Domain.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace Croco.Mental.Domain.Models
@@ -11,13 +12,6 @@ namespace Croco.Mental.Domain.Models
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
-    }
-
-    public enum Gender
-    {
-        Masculine,
-        Feminine,
-        Agender,
-        Transgender
+        public MoodQuestionnaire HumorData { get; set; }
     }
 }

@@ -6,8 +6,8 @@ using Croco.Mental.Domain.Models;
 
 namespace Croco.Mental.Business.Interfaces
 {
-   public interface IEngine
+   public interface IRecommendationEngine
     {
-        Task<bool> RecommendActions(int userId);
+        Task<List<string>> RecommendActions(int userId);
     }
 }

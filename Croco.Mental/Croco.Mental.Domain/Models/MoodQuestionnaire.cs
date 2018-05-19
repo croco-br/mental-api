@@ -11,6 +11,7 @@ namespace Croco.Mental.Domain.Models
     public sealed class MoodQuestionnaire
     {
         public MoodQuestionnaire() => this.Questions = new List<MoodQuestion>();
+        public int QuestionnaireId { get; set; }
         public List<MoodQuestion> Questions { get; set; }
     }
 }
