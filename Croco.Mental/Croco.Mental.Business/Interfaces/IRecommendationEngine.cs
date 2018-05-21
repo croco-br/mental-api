@@ -8,6 +8,6 @@ namespace Croco.Mental.Business.Interfaces
 {
    public interface IRecommendationEngine
     {
-        Task<List<string>> RecommendActions(int userId);
+        Task<RecommendationResponse> RecommendActions(int userId);
     }
 }

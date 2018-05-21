@@ -32,7 +32,12 @@ namespace Croco.Mental.Business
         }
 
         public async Task<bool> Save(Questionnaire data)
-        {   
+        {
+            var invalidLevels = data.Questions.FindAll(x => (int)x.Level <= 0 || (int)x.Level > 5);
+            if (invalidLevels.Count > 0) {
+                throw new InvalidOperationException("Invalid Emotion Level");
+            }
+
             return await _humorDataRepository.Save(data);
         }
     }

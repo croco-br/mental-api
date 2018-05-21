@@ -22,20 +22,44 @@ namespace Croco.Mental.Business
             _userRepository = userRepository;
         }
 
-        public async Task<List<string>> RecommendActions(int userId)
+        public async Task<RecommendationResponse> RecommendActions(int userId)
         {
-            var user = await _userRepository.GetById(userId);
             var questionnaires = await _humorDataRepository.GetByUser(userId);
 
-            var questions = questionnaires.ToList<Questionnaire>();
-            foreach (var q in questions)
+            var masterAnswers = questionnaires.ToList<Questionnaire>();
+
+
+            long goodScore = 0;
+            long badScore = 0;
+
+            //find good emotions
+            foreach (var item in masterAnswers)
             {
-                //TODO: do somethingl
+                var good = item.Questions.Where(x => x.Emotion == Domain.Enums.MoodDefinition.Ativx ||
+                x.Emotion == Domain.Enums.MoodDefinition.Determinadx ||
+                x.Emotion == Domain.Enums.MoodDefinition.Entusiasmadx ||
+                x.Emotion == Domain.Enums.MoodDefinition.Inspiradx ||
+                x.Emotion == Domain.Enums.MoodDefinition.Interessadx);
+
+                goodScore += good.Sum(x => (long)x.Level);
+
+
+                //find bad emotions
+                var bad = item.Questions.Where(x => x.Emotion == Domain.Enums.MoodDefinition.Amedrontadx ||
+                 x.Emotion == Domain.Enums.MoodDefinition.Assustadx ||
+                 x.Emotion == Domain.Enums.MoodDefinition.Atormentadx ||
+                 x.Emotion == Domain.Enums.MoodDefinition.Culpadx ||
+                 x.Emotion == Domain.Enums.MoodDefinition.Nervosx);
+
+                badScore += bad.Sum(x => (long)x.Level);
             }
 
-            return null;
-
-
+            return new RecommendationResponse()
+            {
+                GoodScore = goodScore,
+                BadScore = badScore,
+                Score = goodScore - badScore
+            };
         }
     }
 }
