@@ -13,12 +13,12 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 namespace Croco.Mental.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/v1/humordatas")]
+    [Route("api/v1/questionnaires")]
 
-    public class HumorDatasController : Controller
+    public class QuestionnairesController : Controller
     {
-        private readonly IHumorDataBusiness _humorDataBusiness;
-        public HumorDatasController(IHumorDataBusiness humorDataBusiness) => _humorDataBusiness = humorDataBusiness;
+        private readonly IQuestionnaireBusiness _humorDataBusiness;
+        public QuestionnairesController(IQuestionnaireBusiness humorDataBusiness) => _humorDataBusiness = humorDataBusiness;
 
         /// <summary>
         /// Returns Humor Data as Json.
@@ -46,14 +46,14 @@ namespace Croco.Mental.API.Controllers
         /// <summary>
         /// Persists a humor data object.
         /// </summary>
-        /// <param name="HumorData">Entity</param>
+        /// <param name="Questionnaire">Entity</param>
         /// <remarks>Save humor data object in the database.</remarks>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
         /// <response code="404">Not Found</response>
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
-        public async Task<IActionResult> Save([FromBody]HumorData data)
+        public async Task<IActionResult> Save([FromBody]Questionnaire data)
         {
             try
             {

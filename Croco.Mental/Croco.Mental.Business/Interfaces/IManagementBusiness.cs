@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Croco.Mental.Business.Interfaces
 {
-    public interface IHumorDataBusiness
+    public interface IManagementBusiness
     {
-        Task<IEnumerable<HumorData>> GetAll();
-        Task<HumorData> GetById(int id);
-        Task<bool> Save(HumorData data);
+        Task<bool> DeleteAll();
     }
 }

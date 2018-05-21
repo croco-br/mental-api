@@ -11,8 +11,13 @@ namespace Croco.Mental.Business
     public sealed class UserBusiness : IUserBusiness
     {
         public readonly IUserRepository _userRepository;
+        public readonly IQuestionnaireRepository _questionnaireRepository;
 
-        public UserBusiness(IUserRepository userRepository) => _userRepository = userRepository;
+        public UserBusiness(IUserRepository userRepository, IQuestionnaireRepository questionnaireRepository)
+        {
+            _userRepository = userRepository;
+            _questionnaireRepository = questionnaireRepository;
+        }
 
         public async Task<List<User>> GetAll()
         {
@@ -22,6 +27,11 @@ namespace Croco.Mental.Business
         public async Task<User> GetById(int id)
         {
             return await _userRepository.GetById(id);
+        }
+
+        public async Task<List<Questionnaire>> GetQuestionnairesByUser(int id)
+        {
+            return await _questionnaireRepository.GetByUser(id);
         }
 
         public async Task<bool> Save(User entity)

@@ -13,10 +13,10 @@ namespace Croco.Mental.Business
 {
     public sealed class RecommendationEngine : IRecommendationEngine
     {
-        private readonly IHumorDataRepository _humorDataRepository;
+        private readonly IQuestionnaireRepository _humorDataRepository;
         private readonly IUserRepository _userRepository;
 
-        public RecommendationEngine(IHumorDataRepository humorDataRepository, IUserRepository userRepository)
+        public RecommendationEngine(IQuestionnaireRepository humorDataRepository, IUserRepository userRepository)
         {
             _humorDataRepository = humorDataRepository;
             _userRepository = userRepository;
@@ -25,9 +25,9 @@ namespace Croco.Mental.Business
         public async Task<List<string>> RecommendActions(int userId)
         {
             var user = await _userRepository.GetById(userId);
-            var questionnaires = await _humorDataRepository.GetByUser(user);
+            var questionnaires = await _humorDataRepository.GetByUser(userId);
 
-            var questions = questionnaires.ToList<HumorData>();
+            var questions = questionnaires.ToList<Questionnaire>();
             foreach (var q in questions)
             {
                 //TODO: do somethingl

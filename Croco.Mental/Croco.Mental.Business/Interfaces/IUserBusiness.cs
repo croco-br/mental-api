@@ -9,6 +9,7 @@ namespace Croco.Mental.Business.Interfaces
     public interface IUserBusiness
     {
         Task<User> GetById(int id);
+        Task<List<Questionnaire>> GetQuestionnairesByUser(int id);
         Task<List<User>> GetAll();
         Task<bool> Save(User entity);
     }

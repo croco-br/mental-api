@@ -38,12 +38,14 @@ namespace Croco.Mental.API
 
             //business
             services.AddTransient<IUserBusiness, UserBusiness>();
-            services.AddTransient<IHumorDataBusiness, HumorDataBusiness>();
+            services.AddTransient<IQuestionnaireBusiness, QuestionnaireBusiness>();
+            services.AddTransient<IManagementBusiness, ManagementBusiness>();
 
             //repositories
-            services.AddTransient<IHumorDataRepository, HumorDataRepository>();
+            services.AddTransient<IQuestionnaireRepository, QuestionnaireRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ILogRepository, LogRepository>();
+            services.AddTransient<IManagementRepository, ManagementRepository>();
 
             //Engines
             services.AddTransient<IRecommendationEngine, RecommendationEngine>();

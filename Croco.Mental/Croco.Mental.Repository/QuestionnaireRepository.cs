@@ -3,31 +3,32 @@ using Croco.Mental.Repository.Interfaces;
 using LiteDB;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Croco.Mental.Repository
 {
-    public sealed class HumorDataRepository : IHumorDataRepository
+    public sealed class QuestionnaireRepository : IQuestionnaireRepository
     {
         private readonly ILogRepository _logger;
 
-        public HumorDataRepository(ILogRepository logRepository)
+        public QuestionnaireRepository(ILogRepository logRepository)
         {
             _logger = logRepository;
         }
 
-        private const string COLLECTION_NAME = "HumorData";
+        private const string COLLECTION_NAME = "Questionnaire";
 
-        public async Task<IEnumerable<HumorData>> GetAll()
+        public async Task<List<Questionnaire>> GetAll()
         {
             try
             {
                 using (var db = new LiteDatabase(Configuration.Database))
                 {
-                    var col = db.GetCollection<HumorData>(COLLECTION_NAME);
+                    var col = db.GetCollection<Questionnaire>(COLLECTION_NAME);
 
-                    return col.FindAll();
+                    return col.FindAll().ToList();
 
                 }
             }
@@ -35,21 +36,21 @@ namespace Croco.Mental.Repository
             {
                await _logger.Save(new LogEntry() {
                     Message = ex.Message,
-                    Origin = "HumorDataRepository.GetAll()"
+                    Origin = "QuestionnaireRepository.GetAll()"
                 });
                 throw;
             }
         }
 
-        public async Task<bool> Save(HumorData entity)
+        public async Task<bool> Save(Questionnaire entity)
         {
             try
             {
                 using (var db = new LiteDatabase(Configuration.Database))
                 {
-                    var col = db.GetCollection<HumorData>(COLLECTION_NAME);
+                    var col = db.GetCollection<Questionnaire>(COLLECTION_NAME);
 
-                    col.EnsureIndex(x => x.Id, true);
+                    col.EnsureIndex(x => x.QuestionnaireId, true);
 
                     col.Insert(entity);
 
@@ -61,21 +62,21 @@ namespace Croco.Mental.Repository
                 await _logger.Save(new LogEntry()
                 {
                     Message = ex.Message,
-                    Origin = "HumorDataRepository.Save()"
+                    Origin = "QuestionnaireRepository.Save()"
                 });
                 throw;
             }           
         }
 
-        public async Task<HumorData> GetById(int id)
+        public async Task<Questionnaire> GetById(int id)
         {
             try
             {
                 using (var db = new LiteDatabase(Configuration.Database))
                 {
-                    var col = db.GetCollection<HumorData>(COLLECTION_NAME);
+                    var col = db.GetCollection<Questionnaire>(COLLECTION_NAME);
 
-                    return col.FindOne(x => x.Id == id);
+                    return col.FindOne(x => x.QuestionnaireId == id);
                 }
             }
             catch (Exception ex)
@@ -83,21 +84,21 @@ namespace Croco.Mental.Repository
                 await _logger.Save(new LogEntry()
                 {
                     Message = ex.Message,
-                    Origin = "HumorDataRepository.GetById()"
+                    Origin = "QuestionnaireRepository.GetById()"
                 });
                 throw;
             }
         }
 
-        public async Task<IEnumerable<HumorData>> GetByUser(User user)
+        public async Task<List<Questionnaire>> GetByUser(int userId)
         {
             try
             {
                 using (var db = new LiteDatabase(Configuration.Database))
                 {
-                    var col = db.GetCollection<HumorData>(COLLECTION_NAME);
+                    var col = db.GetCollection<Questionnaire>(COLLECTION_NAME);
 
-                    return col.Find(x => x.Owner.Id == user.Id);
+                    return col.Find(x => x.OwnerId == userId).ToList();
                 }
             }
             catch (Exception ex)
@@ -105,7 +106,7 @@ namespace Croco.Mental.Repository
                 await _logger.Save(new LogEntry()
                 {
                     Message = ex.Message,
-                    Origin = "HumorDataRepository.GetByUser()"
+                    Origin = "QuestionnaireRepository.GetByUser()"
                 });
                 throw;
             }

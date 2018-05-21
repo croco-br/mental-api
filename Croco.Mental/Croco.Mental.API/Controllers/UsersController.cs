@@ -42,6 +42,29 @@ namespace Croco.Mental.API.Controllers
         }
 
         /// <summary>
+        /// Returns Questionnaires of a user as Json.
+        /// </summary>
+        /// <param name="id">entity id</param>
+        /// <remarks>Get a questionnaire object from the database.</remarks>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal Server Error</response>
+        [HttpGet]
+        [Route("{id}/questionnaires/")]
+        public async Task<IActionResult> GetQuestionnairesById(int id)
+        {
+            try
+            {
+                return Ok(await _userBusiness.GetQuestionnairesByUser(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Returns all users.
         /// </summary>
         /// <remarks>Gets users objects from the database.</remarks>

@@ -48,7 +48,7 @@ namespace Croco.Mental.Repository
                 {
                     var col = db.GetCollection<User>(COLLECTION_NAME);
 
-                    return col.FindOne(x => x.Id == id);
+                    return col.FindOne(x => x.UserId == id);
                 }
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace Croco.Mental.Repository
                 {
                     var col = db.GetCollection<User>(COLLECTION_NAME);
 
-                    col.EnsureIndex(x => x.Id, true);
+                    col.EnsureIndex(x => x.UserId, true);
 
                     col.Insert(entity);
 
