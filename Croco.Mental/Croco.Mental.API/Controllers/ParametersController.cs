@@ -54,6 +54,58 @@ namespace Croco.Mental.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Get all possible parameters from requests.
+        /// </summary>
+        /// <param name="id">entity id</param>
+        /// <remarks>Get a parameter.</remarks>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal Server Error</response>
+        //[HttpGet]
+        //[Route("GetAll")]
+        //public async Task<IActionResult> GetAll()
+        //{
+        //    try
+        //    {
+        //        List<string> Emotions = new List<string>();
+        //        Emotions.Add("Interessadx");
+        //        Emotions.Add("Nervosx");
+        //        Emotions.Add("Entusiasmadx");
+        //        Emotions.Add("Amedrontadx");
+        //        Emotions.Add("Inspiradx");
+        //        Emotions.Add("Ativx");
+        //        Emotions.Add("Assustadx");
+        //        Emotions.Add("Culpadx");
+        //        Emotions.Add("Determinadx");
+        //        Emotions.Add("Atormentadx");
+
+        //        List<string> values = new List<string>();
+        //        values.Add("Nada");
+        //        values.Add("Pouco");
+        //        values.Add("Moderadamente");
+        //        values.Add("Bastante");
+        //        values.Add("Extremamente");
+
+        //        List<string> permutations = new List<string>();
+
+        //        foreach (var e in Emotions)
+        //        {
+        //            foreach (var v in values)
+        //            {
+        //                permutations.Add(string.Format("Estou me sentindo {0} {1}", v, e));
+        //            }
+        //        }
+
+        //        return Ok(permutations);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
+
 
     }
 }

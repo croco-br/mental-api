@@ -8,6 +8,15 @@ using Croco.Mental.Repository.Interfaces;
 using Microsoft.ML;
 using System.Linq;
 using Croco.Mental.Domain.Models;
+using System;
+using Microsoft.ML.Models;
+using Microsoft.ML.Runtime;
+using Microsoft.ML.Runtime.Api;
+using Microsoft.ML.Trainers;
+using Microsoft.ML.Transforms;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.ML;
 
 namespace Croco.Mental.Business
 {
@@ -24,6 +33,9 @@ namespace Croco.Mental.Business
 
         public async Task<RecommendationResponse> RecommendActions(int userId)
         {
+
+            await Evaluate();
+
             var questionnaires = await _humorDataRepository.GetByUser(userId);
 
             var masterAnswers = questionnaires.ToList<Questionnaire>();
@@ -61,5 +73,48 @@ namespace Croco.Mental.Business
                 Score = goodScore - badScore
             };
         }
+
+        public async Task<RecommendationResponse> Evaluate()
+        {
+            var pipeline = new LearningPipeline();
+
+            //load test data
+
+            //TODO: get from embedded resource
+            pipeline.Add(new TextLoader<SentimentData>(@"C:\Users\adriano.croco\Source\repos\mental-api\Croco.Mental\Croco.Mental.Domain\Data.txt", useHeader: false, separator: ","));
+
+            //configure output
+            pipeline.Add(new TextFeaturizer("Features", "SentimentText"));
+
+            //algorithm
+            //TODO: test different algorithms
+            pipeline.Add(new FastTreeBinaryClassifier() { NumLeaves = 5, NumTrees = 5, MinDocumentsInLeafs = 2 });
+
+            //TODO: alter sentimentData format
+            PredictionModel<SentimentData, SentimentPrediction> model = pipeline.Train<SentimentData, SentimentPrediction>();
+
+
+            //TODO: persit model
+            //model.WriteAsync(@"C:\Users\adriano.croco\Desktop\model.txt");
+
+            //TODO: uses
+            model.Predict(new SentimentData() { });
+
+            return null;
+        }
+    }
+
+    public class SentimentData
+    {
+        [Column(ordinal: "0")]
+        public string SentimentText;
+        [Column(ordinal: "1", name: "Label")]
+        public float Sentiment;
+    }
+
+    public class SentimentPrediction
+    {
+        [ColumnName("PredictedLabel")]
+        public bool Sentiment;
     }
 }
