@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Croco.Mental.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/v1/Parameters")]
+    [Route("api/v1/parameters")]
     public class ParametersController : Controller
     {
         /// <summary>

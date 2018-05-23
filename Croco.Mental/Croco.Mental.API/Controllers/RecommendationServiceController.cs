@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Croco.Mental.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/v1/Service")]
+    [Route("api/v1/recommendation")]
     public class RecommendationServiceController : Controller
     {
         private readonly IRecommendationService _recommendationService;

@@ -9,16 +9,16 @@ namespace Croco.Mental.Domain.Enums
     /// </summary>
     public enum MoodDefinition
     {
-        Interessadx = 0,
         Nervosx = 1,
-        Entusiasmadx = 2,
+        Interessadx = 2,
         Amedrontadx = 3,
-        Inspiradx = 4,
-        Ativx = 5,
+        Entusiasmadx = 4,
+        Inspiradx = 5,
         Assustadx = 6,
         Culpadx = 7,
-        Determinadx = 8,
-        Atormentadx = 9
+        Ativx = 8,
+        Atormentadx = 9,
+        Determinadx = 10,
     }
 
     /// <summary>

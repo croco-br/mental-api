@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Croco.Mental.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/v1/Management")]
+    [Route("api/v1/management")]
     public class ManagementController : Controller
     {
         private readonly IManagementService _managementService;
