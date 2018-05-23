@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Croco.Mental.Business.Interfaces;
-using Croco.Mental.Business;
+﻿using Croco.Mental.Domain.Interfaces.Services;
 using Croco.Mental.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Croco.Mental.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/v1/Engine")]
-    public class RecommendationEngineController : Controller
+    [Route("api/v1/Service")]
+    public class RecommendationServiceController : Controller
     {
-        private readonly IRecommendationEngine _recommendationEngine;
+        private readonly IRecommendationService _recommendationService;
 
-        public RecommendationEngineController(IRecommendationEngine recommendationEngine) => _recommendationEngine = recommendationEngine;
+        public RecommendationServiceController(IRecommendationService recommendationService) => _recommendationService = recommendationService;
 
         /// <summary>
         /// Recommend actions based on humor data.
@@ -34,7 +33,7 @@ namespace Croco.Mental.API.Controllers
         {
             try
             {
-                return Ok(await _recommendationEngine.RecommendActions(userId));
+                return Ok(await _recommendationService.RecommendActions(userId));
             }
             catch (Exception ex)
             {

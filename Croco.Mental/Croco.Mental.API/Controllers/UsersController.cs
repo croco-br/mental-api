@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Croco.Mental.Business.Interfaces;
-using Croco.Mental.Business;
+﻿using Croco.Mental.Domain.Interfaces.Services;
 using Croco.Mental.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Croco.Mental.API.Controllers
 {
@@ -15,8 +14,8 @@ namespace Croco.Mental.API.Controllers
     [Route("api/v1/users")]
     public class UsersController : Controller
     {
-        private readonly IUserBusiness _userBusiness;
-        public UsersController(IUserBusiness userBusiness) => _userBusiness = userBusiness;
+        private readonly IUserService _userService;
+        public UsersController(IUserService userService) => _userService = userService;
 
         /// <summary>
         /// Returns User as Json.
@@ -33,7 +32,7 @@ namespace Croco.Mental.API.Controllers
         {
             try
             {
-                return Ok(await _userBusiness.GetById(id));
+                return Ok(await _userService.GetById(id));
             }
             catch (Exception ex)
             {
@@ -56,7 +55,7 @@ namespace Croco.Mental.API.Controllers
         {
             try
             {
-                return Ok(await _userBusiness.GetQuestionnairesByUser(id));
+                return Ok(await _userService.GetQuestionnairesByUser(id));
             }
             catch (Exception ex)
             {
@@ -77,7 +76,7 @@ namespace Croco.Mental.API.Controllers
         {
             try
             {
-                return Ok(await _userBusiness.GetAll());
+                return Ok(await _userService.GetAll());
             }
             catch (Exception ex)
             {
@@ -99,7 +98,7 @@ namespace Croco.Mental.API.Controllers
         {
             try
             {
-                return Ok(await _userBusiness.Save(user));
+                return Ok(await _userService.Save(user));
             }
             catch (Exception ex)
             {

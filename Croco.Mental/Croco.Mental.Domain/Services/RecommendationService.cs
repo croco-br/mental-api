@@ -1,32 +1,22 @@
-﻿using Croco.Mental.Business.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Croco.Mental.Repository;
-using Croco.Mental.Repository.Interfaces;
-using Microsoft.ML;
-using System.Linq;
+﻿using Croco.Mental.Domain.Interfaces.Services;
 using Croco.Mental.Domain.Models;
-using System;
-using Microsoft.ML.Models;
-using Microsoft.ML.Runtime;
+using Croco.Mental.Interfaces.Repositories;
+using Microsoft.ML;
 using Microsoft.ML.Runtime.Api;
 using Microsoft.ML.Trainers;
 using Microsoft.ML.Transforms;
-using System.Collections.Generic;
 using System.Linq;
-using Microsoft.ML;
 using System.Reflection;
+using System.Threading.Tasks;
 
-namespace Croco.Mental.Business
+namespace Croco.Mental.Domain.Services
 {
-    public sealed class RecommendationEngine : IRecommendationEngine
+    public sealed class RecommendationService : IRecommendationService
     {
         private readonly IQuestionnaireRepository _humorDataRepository;
         private readonly IUserRepository _userRepository;
 
-        public RecommendationEngine(IQuestionnaireRepository humorDataRepository, IUserRepository userRepository)
+        public RecommendationService(IQuestionnaireRepository humorDataRepository, IUserRepository userRepository)
         {
             _humorDataRepository = humorDataRepository;
             _userRepository = userRepository;

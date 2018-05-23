@@ -1,9 +1,7 @@
 ﻿using Croco.Mental.Domain.Models;
-using Croco.Mental.Repository.Interfaces;
+using Croco.Mental.Interfaces.Repositories;
 using LiteDB;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Croco.Mental.Repository

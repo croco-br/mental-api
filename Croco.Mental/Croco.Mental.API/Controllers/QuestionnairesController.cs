@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Croco.Mental.Business.Interfaces;
-using Croco.Mental.Business;
+using Croco.Mental.Domain.Interfaces.Services;
 using Croco.Mental.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,8 +16,8 @@ namespace Croco.Mental.API.Controllers
 
     public class QuestionnairesController : Controller
     {
-        private readonly IQuestionnaireBusiness _humorDataBusiness;
-        public QuestionnairesController(IQuestionnaireBusiness humorDataBusiness) => _humorDataBusiness = humorDataBusiness;
+        private readonly IQuestionnaireService _humorDataService;
+        public QuestionnairesController(IQuestionnaireService humorDataService) => _humorDataService = humorDataService;
 
         /// <summary>
         /// Returns Humor Data as Json.
@@ -35,7 +34,7 @@ namespace Croco.Mental.API.Controllers
         {
             try
             {
-                return Ok(await _humorDataBusiness.GetById(id));
+                return Ok(await _humorDataService.GetById(id));
             }
             catch (Exception ex)
             {
@@ -57,7 +56,7 @@ namespace Croco.Mental.API.Controllers
         {
             try
             {
-                return Ok(await _humorDataBusiness.Save(data));
+                return Ok(await _humorDataService.Save(data));
             }
             catch (Exception ex)
             {
@@ -78,7 +77,7 @@ namespace Croco.Mental.API.Controllers
         {
             try
             {
-                return Ok(await _humorDataBusiness.GetAll());
+                return Ok(await _humorDataService.GetAll());
             }
             catch (Exception ex)
             {

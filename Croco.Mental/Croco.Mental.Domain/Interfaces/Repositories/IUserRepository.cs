@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Croco.Mental.Repository.Interfaces
+namespace Croco.Mental.Interfaces.Repositories
 {
     public interface IUserRepository
     {

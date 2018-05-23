@@ -1,8 +1,8 @@
-﻿using Croco.Mental.Business;
-using Croco.Mental.Business.Interfaces;
+﻿using Croco.Mental.Domain.Interfaces.Services;
 using Croco.Mental.Domain.Models;
+using Croco.Mental.Domain.Services;
+using Croco.Mental.Interfaces.Repositories;
 using Croco.Mental.Repository;
-using Croco.Mental.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -37,9 +37,9 @@ namespace Croco.Mental.API
             });
 
             //business
-            services.AddTransient<IUserBusiness, UserBusiness>();
-            services.AddTransient<IQuestionnaireBusiness, QuestionnaireBusiness>();
-            services.AddTransient<IManagementBusiness, ManagementBusiness>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IQuestionnaireService, QuestionnaireService>();
+            services.AddTransient<IManagementService, ManagementService>();
 
             //repositories
             services.AddTransient<IQuestionnaireRepository, QuestionnaireRepository>();
@@ -47,8 +47,8 @@ namespace Croco.Mental.API
             services.AddTransient<ILogRepository, LogRepository>();
             services.AddTransient<IManagementRepository, ManagementRepository>();
 
-            //Engines
-            services.AddTransient<IRecommendationEngine, RecommendationEngine>();
+            //Services
+            services.AddTransient<IRecommendationService, RecommendationService>();
         }
 
 

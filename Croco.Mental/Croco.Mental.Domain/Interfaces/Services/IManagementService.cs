@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Croco.Mental.Repository.Interfaces
+namespace Croco.Mental.Domain.Interfaces.Services
 {
-    public interface ILogRepository
+    public interface IManagementService
     {
-        Task<bool> Save(LogEntry entity);  
+        Task<bool> DeleteAll();
     }
 }
