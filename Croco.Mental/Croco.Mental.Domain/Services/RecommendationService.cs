@@ -1,15 +1,9 @@
 ﻿using Croco.Mental.Domain.Interfaces.Services;
 using Croco.Mental.Domain.Models;
-using Croco.Mental.Domain.Models.ML;
 using Croco.Mental.Interfaces.Repositories;
-using Microsoft.ML;
-using Microsoft.ML.Runtime.Api;
-using Microsoft.ML.Trainers;
-using Microsoft.ML.Transforms;
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Croco.Mental.Domain.Services
@@ -25,7 +19,7 @@ namespace Croco.Mental.Domain.Services
             _userRepository = userRepository;
         }
 
-        public async Task<RecommendationResponse> RecommendActions(int userId)
+        public async Task<List<RecommendationResponse>> RecommendActions(int userId)
         {
             var questionnaires = await _humorDataRepository.GetByUser(userId);
 
@@ -34,9 +28,14 @@ namespace Croco.Mental.Domain.Services
             int badScore = 0;
             int goodScore = 0;
 
+            var response = new List<RecommendationResponse>();
+
             //find good emotions
             foreach (var item in masterAnswers)
             {
+                goodScore = 0;
+                badScore = 0;
+
                 foreach (var question in item.Questions)
                 {
                     var result = await EvaluateAnswer(question);
@@ -49,38 +48,18 @@ namespace Croco.Mental.Domain.Services
                         goodScore += result;
                     }
                 }
+
+                response.Add(new RecommendationResponse()
+                {
+                    Timestamp = item.Timestamp,
+                    GoodScore = goodScore,
+                    BadScore = badScore,
+                    Score = goodScore - badScore
+                });
             }
-
-            return new RecommendationResponse()
-            {
-                GoodScore = goodScore,
-                BadScore = badScore,
-                Score = goodScore - badScore
-            };
-        }
-
-        public async Task<SentimentPrediction> RecommendActionsUsingModel(int userId)
-        {
-            var pipeline = new LearningPipeline();
-
-            //load test data                       
-            pipeline.Add(new TextLoader<SentimentData>(@"C:\Users\adriano.croco\Source\repos\mental-api\Croco.Mental\Croco.Mental.Domain\Data.txt", useHeader: false, separator: ","));
-
-            //configure output
-            pipeline.Add(new TextFeaturizer("Features", "SentimentText"));
-
-            //algorithm
-            //TODO: test different algorithms
-            pipeline.Add(new FastTreeBinaryClassifier() { NumLeaves = 5, NumTrees = 5, MinDocumentsInLeafs = 2 });
-            //pipeline.Add(new FastForestBinaryClassifier() { NumLeaves = 5, NumTrees = 5, MinDocumentsInLeafs = 2 });
-
-
-            //TODO: alter sentimentData format
-            PredictionModel<SentimentData, SentimentPrediction> model = pipeline.Train<SentimentData, SentimentPrediction>();
-
-            //TODO: uses
-            return model.Predict(new SentimentData() { });
-        }
+           
+            return response;
+        }       
 
         private async Task<int> EvaluateAnswer(MoodQuestion question)
         {
