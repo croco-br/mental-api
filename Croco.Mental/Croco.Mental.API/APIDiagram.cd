@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Croco.Mental.API.Controllers.ManagementController">
+    <Position X="7.75" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ManagementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.API.Controllers.ParametersController">
+    <Position X="4" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ParametersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.API.Controllers.QuestionnairesController">
+    <Position X="4" Y="2" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Controllers\QuestionnairesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.API.Controllers.RecommendationServiceController">
+    <Position X="4" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAIA=</HashCode>
+      <FileName>Controllers\RecommendationServiceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.API.Controllers.UsersController">
+    <Position X="7.75" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAgAEAAAAAIA=</HashCode>
+      <FileName>Controllers\UsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.API.Program">
+    <Position X="11.75" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.API.Startup">
+    <Position X="11.75" Y="2.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgAAACAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

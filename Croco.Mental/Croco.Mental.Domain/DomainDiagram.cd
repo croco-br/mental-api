@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Croco.Mental.Domain.Models.LogEntry">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAA=</HashCode>
+      <FileName>Models\LogEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.Domain.Models.MoodQuestion">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAIA=</HashCode>
+      <FileName>Models\MoodQuestion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.Domain.Models.Questionnaire">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAACAAAAAAAEAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Questionnaire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.Domain.Models.RecommendationResponse">
+    <Position X="7" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAgAAAACAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\RecommendationResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.Domain.Models.User">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAwAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Croco.Mental.Domain.Services.ManagementService" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ManagementService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Croco.Mental.Domain.Services.QuestionnaireService" BaseTypeListCollapsed="true">
+    <Position X="20" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIE=</HashCode>
+      <FileName>Services\QuestionnaireService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Croco.Mental.Domain.Services.RecommendationService" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Services\RecommendationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Croco.Mental.Domain.Services.UserService" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIAAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAgBAAAAAAIA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Croco.Mental.Interfaces.Repositories.ILogRepository">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Repositories\ILogRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Croco.Mental.Interfaces.Repositories.IManagementRepository">
+    <Position X="7.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Repositories\IManagementRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Croco.Mental.Interfaces.Repositories.IQuestionnaireRepository">
+    <Position X="1.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\Repositories\IQuestionnaireRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Croco.Mental.Interfaces.Repositories.IUserRepository">
+    <Position X="3.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\Repositories\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Croco.Mental.Domain.Interfaces.Services.IManagementService">
+    <Position X="3.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Services\IManagementService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Croco.Mental.Domain.Interfaces.Services.IQuestionnaireService">
+    <Position X="1.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\Services\IQuestionnaireService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Croco.Mental.Domain.Interfaces.Services.IRecommendationService">
+    <Position X="5.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Services\IRecommendationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Croco.Mental.Domain.Interfaces.Services.IUserService">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\Services\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Croco.Mental.Domain.Enums.MoodDefinition">
+    <Position X="16" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAgAAAAAAEAAAAAAAAAAAEhCAAQAAIIAAA=</HashCode>
+      <FileName>Enums\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Croco.Mental.Domain.Enums.MoodLevel">
+    <Position X="14" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAQgAAAAAAAAAAFAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Croco.Mental.Domain.Enums.Gender">
+    <Position X="17.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAIAAAAEAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
