@@ -22,7 +22,7 @@ namespace Croco.Mental.API.Controllers
         /// <summary>
         /// Recommend actions based on humor data.
         /// </summary>
-        /// <param name="id">entity id</param>
+        /// <param name="userId">entity id</param>
         /// <remarks>Get a humor data object from the database.</remarks>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>

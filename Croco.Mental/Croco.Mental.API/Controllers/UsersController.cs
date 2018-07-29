@@ -87,7 +87,7 @@ namespace Croco.Mental.API.Controllers
         /// <summary>
         /// Insert a user in the database.
         /// </summary>
-        /// <param name="id">entity id</param>
+        /// <param name="user">entity</param>
         /// <remarks>Set a user object in the database.</remarks>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>

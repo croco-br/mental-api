@@ -38,7 +38,7 @@ namespace Croco.Mental.Domain.Services
 
                 foreach (var question in item.Questions)
                 {
-                    var result = await EvaluateAnswer(question);
+                    var result = EvaluateAnswer(question);
                     if (result <= 0)
                     {
                         badScore -= result;
@@ -61,7 +61,7 @@ namespace Croco.Mental.Domain.Services
             return response;
         }       
 
-        private async Task<int> EvaluateAnswer(MoodQuestion question)
+        private int EvaluateAnswer(MoodQuestion question)
         {
             switch (question.Emotion)
             {

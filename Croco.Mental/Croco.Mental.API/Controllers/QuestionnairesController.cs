@@ -45,7 +45,7 @@ namespace Croco.Mental.API.Controllers
         /// <summary>
         /// Persists a humor data object.
         /// </summary>
-        /// <param name="Questionnaire">Entity</param>
+        /// <param name="data">Entity</param>
         /// <remarks>Save humor data object in the database.</remarks>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
