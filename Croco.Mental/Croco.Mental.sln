@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Croco.Mental.API", "Croco.Mental.API\Croco.Mental.API.csproj", "{5E3A338E-8B2D-48C4-B04E-3FCA3618CE2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Croco.Mental.Domain", "Croco.Mental.Domain\Croco.Mental.Domain.csproj", "{3C819285-CC36-4D23-BA83-82A3E2300F28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Croco.Mental.Repository", "Croco.Mental.Repository\Croco.Mental.Repository.csproj", "{6DAC2F1D-6621-4D66-A7F1-170A751F8726}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Croco.Mental.Tests", "Croco.Mental.Tests\Croco.Mental.Tests.csproj", "{446E4386-0CCC-40D9-B42D-31276DC6B8D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E3A338E-8B2D-48C4-B04E-3FCA3618CE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E3A338E-8B2D-48C4-B04E-3FCA3618CE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E3A338E-8B2D-48C4-B04E-3FCA3618CE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E3A338E-8B2D-48C4-B04E-3FCA3618CE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C819285-CC36-4D23-BA83-82A3E2300F28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C819285-CC36-4D23-BA83-82A3E2300F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C819285-CC36-4D23-BA83-82A3E2300F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C819285-CC36-4D23-BA83-82A3E2300F28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DAC2F1D-6621-4D66-A7F1-170A751F8726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DAC2F1D-6621-4D66-A7F1-170A751F8726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DAC2F1D-6621-4D66-A7F1-170A751F8726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DAC2F1D-6621-4D66-A7F1-170A751F8726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{446E4386-0CCC-40D9-B42D-31276DC6B8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{446E4386-0CCC-40D9-B42D-31276DC6B8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{446E4386-0CCC-40D9-B42D-31276DC6B8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{446E4386-0CCC-40D9-B42D-31276DC6B8D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55B610CF-2056-4DA5-9056-24C84A34E8F8}
+	EndGlobalSection
+EndGlobal
